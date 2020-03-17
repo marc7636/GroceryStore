@@ -8,15 +8,15 @@ namespace GroceryStore
     {
         string name;
         string barcode;
-        DateTime experitationDate;
-       
+        DateTimeOffset experirationDate;
+        bool requiresRefrigeration;
 
-
-        Item(string name, string barcode, DateTime experirationDate)
+        public Item(string name, string barcode, DateTimeOffset experirationDate, bool requiresRefrigeration)
         {
             this.name = name; 
             this.barcode = barcode;
-            this.experitationDate = experirationDate;
+            this.experirationDate = experirationDate;
+            this.requiresRefrigeration = requiresRefrigeration;
         }
 
         

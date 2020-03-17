@@ -6,6 +6,6 @@ namespace GroceryStore
 {
     class Storage
     {
-
+        List<Item> inventory;
     }
 }
