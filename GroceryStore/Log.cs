@@ -21,7 +21,7 @@ namespace GroceryStore
                 {
                     var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                     var inv = (Dictionary<string,Item>)formatter.Deserialize(stream);
-                    Storage.AddCollection(inv);
+                    Storage.AddCollection(inv.Values);
                 }
             }    
         }
