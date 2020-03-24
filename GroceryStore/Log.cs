@@ -20,8 +20,8 @@ namespace GroceryStore
                 using (Stream stream = File.Open("/storage", FileMode.Create))
                 {
                     var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                    var inv = (Dictionary<string,Item>)formatter.Deserialize(stream);
-                    Storage.AddCollection(inv.Values);
+                    var inv = (Item[])formatter.Deserialize(stream);
+                    Storage.AddCollection(inv);
                 }
             }    
         }
@@ -33,7 +33,7 @@ namespace GroceryStore
             using (Stream stream = File.Open("/storage", FileMode.Create))
             {
                 var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                formatter.Serialize(stream, Storage.Inventory);
+                formatter.Serialize(stream, Storage.Values);
             }
         }
 
