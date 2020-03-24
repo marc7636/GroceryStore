@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GroceryStore
 {
-    static class User
+    public static class User
     {
         public static string CurrentUser;
     }

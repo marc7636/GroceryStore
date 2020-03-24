@@ -22,7 +22,9 @@ namespace GroceryUI
     {
         public MainWindow()
         {
+            GroceryStore.Log.LoadState();
             InitializeComponent();
+            GroceryStore.Log.SaveState();
         }
     }
 }

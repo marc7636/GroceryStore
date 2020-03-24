@@ -5,7 +5,7 @@ using System.Text;
 namespace GroceryStore
 {
     [Serializable]
-    class Item
+    public class Item
     {
         public string Name { get; private set; }
 
@@ -29,7 +29,7 @@ namespace GroceryStore
         }
     }
 
-    enum StorageMedium
+    public enum StorageMedium
     {
         None,
         Refrigeration,

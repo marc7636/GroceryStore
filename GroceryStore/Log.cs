@@ -5,7 +5,7 @@ using System.IO;
 
 namespace GroceryStore
 {
-    static class Log
+    public static class Log
     {
         public static List<string> log {
             get;

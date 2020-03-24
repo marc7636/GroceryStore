@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GroceryStore
 {
-    static class Storage
+    public static class Storage
     {
         private static Dictionary<string, Item> Inventory;
 
