@@ -25,7 +25,7 @@ namespace GroceryStore
 
         public static void Add(string changes)
         {
-            string time = DateTime.Now.TimeOfDay.ToString();
+            string time = DateTimeOffset.Now.TimeOfDay.ToString();
             log.Add(time.Substring(0,time.IndexOf('.')) + @$" | {User.CurrentUser} | " + changes);
         }
     }

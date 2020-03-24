@@ -7,51 +7,26 @@ namespace GroceryStore
     [Serializable]
     class Item
     {
-        string name;
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
+        public string Name { get; private set; }
 
-        string barcode;
-        public string Barcode
-        {
-            get
-            {
-                return barcode;
-            }
-        }
+        public string Barcode { get; private set; }
 
-        DateTimeOffset experirationDate;
-        public DateTimeOffset ExpirationDate
-        {
-            get
-            {
-                return experirationDate;
-            }
-        }
+        public DateTimeOffset ExpirationDate { get; private set; }
 
-        StorageMedium storageMedium;
-        public StorageMedium StorageMedium
-        {
-            get
-            {
-                return storageMedium;
-            }
-        }
+        public StorageMedium StorageMedium { get; private set; }
 
         public Item(string name, string barcode, DateTimeOffset experirationDate, StorageMedium storageMedium)
         {
-            this.name = name; 
-            this.barcode = barcode;
-            this.experirationDate = experirationDate;
-            this.storageMedium = storageMedium;
+            this.Name = name; 
+            this.Barcode = barcode;
+            this.ExpirationDate = experirationDate;
+            this.StorageMedium = storageMedium;
         }
 
-        
+        public override string ToString()
+        {
+            return $"{Name} ({Barcode})";
+        }
     }
 
     enum StorageMedium
