@@ -7,7 +7,7 @@ namespace GroceryStore
 {
     public static class Storage
     {
-        private static Dictionary<string, Item> Inventory;
+        private static Dictionary<string, Item> Inventory = new Dictionary<string, Item>();
 
         public static Item[] Values
         {
