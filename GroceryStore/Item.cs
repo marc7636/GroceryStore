@@ -8,9 +8,40 @@ namespace GroceryStore
     class Item
     {
         string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
+
         string barcode;
+        public string Barcode
+        {
+            get
+            {
+                return barcode;
+            }
+        }
+
         DateTimeOffset experirationDate;
+        public DateTimeOffset ExpirationDate
+        {
+            get
+            {
+                return experirationDate;
+            }
+        }
+
         StorageMedium storageMedium;
+        public StorageMedium StorageMedium
+        {
+            get
+            {
+                return storageMedium;
+            }
+        }
 
         public Item(string name, string barcode, DateTimeOffset experirationDate, StorageMedium storageMedium)
         {
