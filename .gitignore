@@ -351,3 +351,5 @@ MigrationBackup/
 GroceryStore/obj/project.assets.json
 
 GroceryStore/obj/
+
+*.cache
