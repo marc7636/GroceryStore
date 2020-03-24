@@ -8,19 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\morte\\.nuget\\packages\\": {}
+    "C:\\Users\\Daniel\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\OneDrive\\Skole\\ZBC\\Programmering\\Eksamensprojekt\\GroceryStore\\GroceryStore\\GroceryStore.csproj",
+      "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GroceryStore\\GroceryStore\\GroceryStore.csproj",
       "projectName": "GroceryStore",
-      "projectPath": "D:\\OneDrive\\Skole\\ZBC\\Programmering\\Eksamensprojekt\\GroceryStore\\GroceryStore\\GroceryStore.csproj",
-      "packagesPath": "C:\\Users\\morte\\.nuget\\packages\\",
-      "outputPath": "D:\\OneDrive\\Skole\\ZBC\\Programmering\\Eksamensprojekt\\GroceryStore\\GroceryStore\\obj\\",
+      "projectPath": "C:\\Users\\Daniel\\Documents\\GroceryStore\\GroceryStore\\GroceryStore.csproj",
+      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Daniel\\Documents\\GroceryStore\\GroceryStore\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\morte\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
