@@ -4,21 +4,29 @@ using System.Text;
 
 namespace GroceryStore
 {
+    [Serializable]
     class Item
     {
         string name;
         string barcode;
         DateTimeOffset experirationDate;
-        bool requiresRefrigeration;
+        StorageMedium storageMedium;
 
-        public Item(string name, string barcode, DateTimeOffset experirationDate, bool requiresRefrigeration)
+        public Item(string name, string barcode, DateTimeOffset experirationDate, StorageMedium storageMedium)
         {
             this.name = name; 
             this.barcode = barcode;
             this.experirationDate = experirationDate;
-            this.requiresRefrigeration = requiresRefrigeration;
+            this.storageMedium = storageMedium;
         }
 
         
+    }
+
+    enum StorageMedium
+    {
+        None,
+        Refrigeration,
+        Freezer
     }
 }
