@@ -33,7 +33,7 @@ namespace GroceryStore
             using (Stream stream = File.Open("/storage", FileMode.Create))
             {
                 var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                formatter.Serialize(stream, Storage.inventory);
+                formatter.Serialize(stream, Storage.Inventory);
             }
         }
 
