@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,21 @@ namespace GroceryStore
     static class Storage
     {
         private static Dictionary<string, Item> Inventory;
+
+        public static Item[] Values
+        {
+            get
+            {
+                Item[] items = new Item[Inventory.Count];
+                int i = 0;
+                foreach (Item item in Inventory.Values)
+                {
+                    items[i] = item;
+                    i++;
+                }
+                return items;
+            }
+        }
 
         public static void Add(Item item)
         {
@@ -53,6 +69,11 @@ namespace GroceryStore
                 }
             }
             return expiredItems.ToArray();
+        }
+
+        public static IEnumerator<Item> GetEnumerator()
+        {
+            return Inventory.Values.GetEnumerator();
         }
     }
 }
