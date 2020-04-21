@@ -29,6 +29,7 @@ namespace GroceryStore
 
         public static void SaveState()
         {
+            Directory.CreateDirectory(path);
             if (File.Exists(path + @"/storage.store"))
                 File.Delete(path + @"/storage.store");
             using (Stream stream = File.Open(path + "/storage.store", FileMode.Create))
