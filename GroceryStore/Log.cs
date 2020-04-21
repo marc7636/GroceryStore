@@ -11,7 +11,7 @@ namespace GroceryStore
             get;
             private set;
         } = new List<string>();
-        public static string path = @"C:\Users\Public\GroceryStore\";
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\GroceryStore\\";
 
 
         public static void LoadState()
