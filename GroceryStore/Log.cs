@@ -11,36 +11,43 @@ namespace GroceryStore
             get;
             private set;
         } = new List<string>();
+        public static string path = @"C:\Users\Public\GroceryStore\";
 
 
         public static void LoadState()
         {
-            if (File.Exists(@"/storage"))
+            if (File.Exists(path + @"/storage.store"))
             {
-                using (Stream stream = File.Open("/storage", FileMode.Create))
+                using (Stream stream = File.Open(path + "/storage.store", FileMode.Open))
                 {
                     var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                     var inv = (Item[])formatter.Deserialize(stream);
-                    Storage.AddCollection(inv);
+                    Storage.Add(inv);
                 }
             }    
         }
 
         public static void SaveState()
         {
-            if (File.Exists(@"/storage"))
-                File.Delete(@"/storage");
-            using (Stream stream = File.Open("/storage", FileMode.Create))
+            if (File.Exists(path + @"/storage.store"))
+                File.Delete(path + @"/storage.store");
+            using (Stream stream = File.Open(path + "/storage.store", FileMode.Create))
             {
                 var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                formatter.Serialize(stream, Storage.Values);
+                formatter.Serialize(stream, Storage.Items);
             }
         }
 
         public static void Add(string changes)
         {
-            string time = DateTimeOffset.Now.TimeOfDay.ToString();
-            log.Add(time.Substring(0,time.IndexOf('.')) + @$" | {User.CurrentUser} | " + changes);
+            Directory.CreateDirectory(path);
+            var time = DateTimeOffset.Now;
+            using (StreamWriter file =
+            new StreamWriter(path + time.Date.ToString().Replace('/', '-').Split(' ')[0] + ".txt", true))
+            {
+                var timeOfDay = time.TimeOfDay.ToString();
+                file.WriteLine(timeOfDay.Substring(0, timeOfDay.IndexOf('.')) + @$" | {User.CurrentUser} | " + changes);
+            }
         }
     }
 }

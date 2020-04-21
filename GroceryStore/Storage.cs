@@ -9,7 +9,7 @@ namespace GroceryStore
     {
         private static Dictionary<string, Item> Inventory = new Dictionary<string, Item>();
 
-        public static Item[] Values
+        public static Item[] Items
         {
             get
             {
@@ -30,7 +30,7 @@ namespace GroceryStore
             Log.Add(item + "was added to storage!");
         }
 
-        public static void AddCollection(ICollection<Item> items)
+        public static void Add(ICollection<Item> items)
         {
             int i = 0;
             foreach (Item item in items)
@@ -40,22 +40,32 @@ namespace GroceryStore
             }
         }
 
-        public static Item GetItem(string barcode)
+        public static Item Get(string barcode)
         {
             Item item = Inventory[barcode];
             Log.Add(item + "was accessed in storage!");
             return item;
         }
 
-        public static bool CheckItem(string barcode)
+        public static bool Contains(string barcode)
         {
             return Inventory.ContainsKey(barcode);
         }
 
-        public static void RemoveItem(string barcode)
+        public static bool Contains(Item item)
+        {
+            return Contains(item.Barcode);
+        }
+
+        public static void Remove(string barcode)
         {
             Log.Add(Inventory[barcode] + "was removed from storage!");
             Inventory.Remove(barcode);
+        }
+
+        public static void Remove(Item item)
+        {
+            Remove(item.Barcode);
         }
 
         public static Item[] GetExpiredItems()
