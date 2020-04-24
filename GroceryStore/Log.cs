@@ -44,7 +44,7 @@ namespace GroceryStore
             Directory.CreateDirectory(path);
             var time = DateTimeOffset.Now;
             using (StreamWriter file =
-            new StreamWriter(path + time.Date.ToString().Replace('/', '-').Split(' ')[0] + ".txt", true))
+            File.AppendText(path + time.Date.ToString().Replace('/', '-').Split(' ')[0] + ".txt"))
             {
                 var timeOfDay = time.TimeOfDay.ToString();
                 file.WriteLine(timeOfDay.Substring(0, timeOfDay.IndexOf('.')) + @$" | {User.CurrentUser} | " + changes);

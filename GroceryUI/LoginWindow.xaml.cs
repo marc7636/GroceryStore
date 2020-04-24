@@ -15,25 +15,20 @@ namespace GroceryUI
 	/// <summary>
 	/// Interaction logic for LoginWindow.xaml
 	/// </summary>
-	public partial class LoginWindow : Window
+	public partial class LoginPage : Page
 	{
-		public LoginWindow()
+		public Frame frame;
+		public LoginPage(Frame frame)
 		{
+			this.frame = frame;
 			InitializeComponent();
-			this.PerformLoginButton.Click += new RoutedEventHandler(AttemptLogin);
 		}
 
-		void AttemptLogin(object sender, EventArgs e)
+		void AttemptLogin(object sender, RoutedEventArgs e)
 		{
-			bool possible = true;
-			if (UsernameBox.Text == "")
+			if (UsernameBox.Text != "")
 			{
-				possible = false;
-			}
-
-			if (possible)
-			{
-
+				frame.Content = new MainPage(frame);		
 			}
 		}
 	}

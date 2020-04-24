@@ -25,12 +25,14 @@ namespace GroceryUI
             GroceryStore.Log.LoadState();
             InitializeComponent();
             this.Closed += new EventHandler(MainWindowClosed);
-            frame.Content = new MainPage();
+            frame.Content = new LoginPage(frame);
         }
 
         void MainWindowClosed(object sender, EventArgs e)
         {
             GroceryStore.Log.SaveState();
         }
+
+        
     }
 }

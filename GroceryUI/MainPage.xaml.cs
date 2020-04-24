@@ -18,15 +18,21 @@ namespace GroceryUI
 	/// </summary>
 	public partial class MainPage : Page
 	{
-		public MainPage()
+		public Frame frame;
+		public MainPage(Frame frame)
 		{
+			this.frame = frame;
 			InitializeComponent();
-			ClerkButton.Click += new RoutedEventHandler(ClerkButtonClick);
 		}
 
-		void ClerkButtonClick(object sender, RoutedEventArgs e)
+		void StorageButtonClick(object sender, RoutedEventArgs e)
 		{
 			
-		}	
+		}
+
+		void LogsButtonClick(object sender, RoutedEventArgs e)
+		{
+			frame.Content = new LogsPage();
+		}
 	}
 }
