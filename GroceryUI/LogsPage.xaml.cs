@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -38,7 +38,7 @@ namespace GroceryUI
 
         string[] LoadLogs()
         {
-            return System.IO.File.ReadAllLines(Log.path + DateTimeOffset.Now.Date.ToString().Replace('/', '-').Split(' ')[0] + ".txt");
+            return System.IO.File.ReadAllLines(Log.path + DateTimeOffset.Now.Date.ToString("dd-MM-yyyy") + ".txt");
         }
     }
 }

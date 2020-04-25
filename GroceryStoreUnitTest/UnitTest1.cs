@@ -99,7 +99,7 @@ namespace GroceryStoreUnitTest
 		public void AddToLog()
 		{
 			Log.Add("This is a test");
-			string text = System.IO.File.ReadAllText(Log.path + System.DateTimeOffset.Now.Date.ToString().Replace('/', '-').Split(' ')[0] + ".txt");
+			string text = System.IO.File.ReadAllText(Log.path + System.DateTimeOffset.Now.Date.ToString("dd-MM-yyyy") + ".txt");
 			Assert.IsTrue(text.Contains("This is a test"));
 		}
 	}
