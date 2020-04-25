@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -24,7 +24,7 @@ namespace GroceryUI
 
 		void AttemptLogin(object sender, RoutedEventArgs e)
 		{
-			if (UsernameBox.Text != "")
+			if (!string.IsNullOrEmpty(UsernameBox.Text))
 			{
 				DialogResult = true;
 				Close();
