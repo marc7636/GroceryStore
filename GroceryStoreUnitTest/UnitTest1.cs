@@ -10,7 +10,7 @@ namespace GroceryStoreUnitTest
 		[TestMethod]
 		public void AddValidItem()
 		{
-			var expirationDate = new System.DateTimeOffset(2022, 1, 1, 0, 0, 0, new System.TimeSpan(0, 0, 0, 0));
+			var expirationDate = new System.DateTime(2022, 1, 1, 0, 0, 0);
 			Item testItem = new Item("testItem", "123456789 900", expirationDate, StorageMedium.None);
 			Storage.Add(testItem);
 			Assert.IsTrue(Storage.Contains(testItem));
@@ -27,7 +27,7 @@ namespace GroceryStoreUnitTest
 		[TestMethod]
 		public void AddExpiredItem()
 		{
-			var expirationDate = new System.DateTimeOffset(2000, 1, 1, 0, 0, 0, new System.TimeSpan(0, 0, 0, 0));
+			var expirationDate = new System.DateTime(2000, 1, 1, 0, 0, 0);
 			Item testItem = new Item("testItem", "123456789 000", expirationDate, StorageMedium.None);
 			Storage.Add(testItem);
 			Assert.IsTrue(Storage.Contains(testItem));
@@ -39,7 +39,7 @@ namespace GroceryStoreUnitTest
 			var collectionOfItems = new List<Item>();
 			for (int i = 0; i < 10; i++)
 			{
-				var expirationDate = new System.DateTimeOffset(2022, 1, 1, 0, 0, 0, new System.TimeSpan(0, 0, 0, 0));
+				var expirationDate = new System.DateTime(2022, 1, 1, 0, 0, 0);
 				Item testItem = new Item("testItem", "123456789 " + i, expirationDate, StorageMedium.None);
 				collectionOfItems.Add(testItem);
 			}
@@ -56,7 +56,7 @@ namespace GroceryStoreUnitTest
 		[TestMethod]
 		public void RemoveItem()
 		{
-			var expirationDate = new System.DateTimeOffset(2022, 1, 1, 0, 0, 0, new System.TimeSpan(0, 0, 0, 0));
+			var expirationDate = new System.DateTime(2022, 1, 1, 0, 0, 0);
 			Item testItem = new Item("testItem", "123456789 300", expirationDate, StorageMedium.None);
 			Storage.Add(testItem);
 			Storage.Remove(testItem);
@@ -66,7 +66,7 @@ namespace GroceryStoreUnitTest
 		[TestMethod]
 		public void GetExpired()
 		{
-			var expirationDate = new System.DateTimeOffset(2000, 1, 1, 0, 0, 0, new System.TimeSpan(0, 0, 0, 0));
+			var expirationDate = new System.DateTime(2000, 1, 1, 0, 0, 0);
 			Item testItem = new Item("testItem", "123456789 200", expirationDate, StorageMedium.None);
 			Storage.Add(testItem);
 			var expired = Storage.GetExpiredItems();
@@ -80,7 +80,7 @@ namespace GroceryStoreUnitTest
 		[TestMethod]
 		public void SaveAndLoadStateTest()
 		{
-			var expirationDate = new System.DateTimeOffset(2022, 1, 1, 0, 0, 0, new System.TimeSpan(0, 0, 0, 0));
+			var expirationDate = new System.DateTime(2022, 1, 1, 0, 0, 0);
 			Item testItem = new Item("testItem", "123456789 100", expirationDate, StorageMedium.None);
 			Storage.Add(testItem);
 

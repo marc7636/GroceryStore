@@ -11,11 +11,11 @@ namespace GroceryStore
 
         public string Barcode { get; private set; }
 
-        public DateTimeOffset ExpirationDate { get; private set; }
+        public DateTime ExpirationDate { get; private set; }
 
         public StorageMedium StorageMedium { get; private set; }
 
-        public Item(string name, string barcode, DateTimeOffset experirationDate, StorageMedium storageMedium)
+        public Item(string name, string barcode, DateTime experirationDate, StorageMedium storageMedium)
         {
             this.Name = name; 
             this.Barcode = barcode;
