@@ -1,5 +1,7 @@
+using GroceryStore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +24,9 @@ namespace GroceryUI
     {
         public MainWindow()
         {
-            GroceryStore.Log.LoadState();
+            Log.LoadState();
             InitializeComponent();
-            this.Closed += new EventHandler(MainWindowClosed);
+
             LoginWindow loginWindow = new LoginWindow();
             if (loginWindow.ShowDialog() == true)
             {
@@ -37,11 +39,18 @@ namespace GroceryUI
             }
         }
 
-        void MainWindowClosed(object sender, EventArgs e)
+        void MainWindowClosing(object sender, CancelEventArgs e)
         {
-            GroceryStore.Log.SaveState();
+            try
+            {
+                Log.SaveState();
+            }
+            catch (Exception exception)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Could not save data, because " + exception.ToString());
+                throw;
+            }
         }
-
-        
     }
 }
