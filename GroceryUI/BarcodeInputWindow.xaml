@@ -1,0 +1,19 @@
+﻿<Window x:Class="GroceryUI.BarcodeInputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GroceryUI"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="BarcodeInputWindow" SizeToContent="WidthAndHeight" Closing="Window_Closing">
+    <Grid Margin="10">
+        <TextBox x:Name="barcodeInputBox" HorizontalAlignment="Left" Margin="61,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" PreviewTextInput="NumberInputValidation" KeyDown="BarcodeInputBox_KeyDown"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,1,0,0" Text="Barcode" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <DatePicker x:Name="expirationDatePicker" HorizontalAlignment="Left" Margin="97,23,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="0,27,0,0" Text="Expiration date" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="registerItemButton" Content="Register" HorizontalAlignment="Left" Margin="108,62,0,0" VerticalAlignment="Top" Click="RegisterItemButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="160,62,0,0" VerticalAlignment="Top" Click="CancelButton_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Page x:Class="GroceryUI.StoragePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GroceryUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Storage">
+
+    <Grid>
+        <ListView x:Name="StorageListView" HorizontalAlignment="Left" Width="480" SizeChanged="OnSizeChange">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Barcode" Width="80" DisplayMemberBinding="{Binding Barcode}"/>
+                    <GridViewColumn Header="Expiration Date" Width="90" DisplayMemberBinding="{Binding ExpirationDate}"/>
+                    <GridViewColumn Header="Storage Medium" Width="100" DisplayMemberBinding="{Binding StorageMedium}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="AddButton" Content="Add item(s)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Click="AddButtonClick"/>
+    </Grid>
+</Page>
