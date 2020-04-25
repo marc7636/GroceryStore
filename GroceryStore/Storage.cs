@@ -14,12 +14,7 @@ namespace GroceryStore
             get
             {
                 Item[] items = new Item[Inventory.Count];
-                int i = 0;
-                foreach (Item item in Inventory.Values)
-                {
-                    items[i] = item;
-                    i++;
-                }
+                Inventory.Values.CopyTo(items, 0);
                 return items;
             }
         }
