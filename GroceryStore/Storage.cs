@@ -7,7 +7,7 @@ namespace GroceryStore
 {
     public static class Storage
     {
-        private static Dictionary<string, Item> Inventory = new Dictionary<string, Item>();
+        private static readonly Dictionary<string, Item> Inventory = new Dictionary<string, Item>(); //This is readonly, so that the inventory can never be replaced with a new one. Regular functionality should be kept
 
         public static Item[] Items
         {
