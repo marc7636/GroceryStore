@@ -18,21 +18,19 @@ namespace GroceryUI
 	/// </summary>
 	public partial class MainPage : Page
 	{
-		public Frame frame;
-		public MainPage(Frame frame)
+		public MainPage()
 		{
-			this.frame = frame;
 			InitializeComponent();
 		}
 
 		void StorageButtonClick(object sender, RoutedEventArgs e)
 		{
-			
+			NavigationService.Navigate(new StoragePage());
 		}
-
+        
 		void LogsButtonClick(object sender, RoutedEventArgs e)
 		{
-			frame.Content = new LogsPage();
+			NavigationService.Navigate(new LogsPage());
 		}
 	}
 }
