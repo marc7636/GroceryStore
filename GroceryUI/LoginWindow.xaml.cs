@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -15,12 +15,10 @@ namespace GroceryUI
 	/// <summary>
 	/// Interaction logic for LoginWindow.xaml
 	/// </summary>
-	public partial class LoginPage : Page
+	public partial class LoginWindow : Window
 	{
-		public Frame frame;
-		public LoginPage(Frame frame)
+		public LoginWindow()
 		{
-			this.frame = frame;
 			InitializeComponent();
 		}
 
@@ -28,8 +26,15 @@ namespace GroceryUI
 		{
 			if (UsernameBox.Text != "")
 			{
-				frame.Content = new MainPage(frame);		
+				DialogResult = true;
+				Close();
 			}
+		}
+
+		private void CancelLoginButton_Click(object sender, RoutedEventArgs e)
+		{
+			DialogResult = false;
+			Close();
 		}
 	}
 }

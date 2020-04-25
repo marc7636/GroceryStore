@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,16 @@ namespace GroceryUI
             GroceryStore.Log.LoadState();
             InitializeComponent();
             this.Closed += new EventHandler(MainWindowClosed);
-            frame.Content = new LoginPage(frame);
+            LoginWindow loginWindow = new LoginWindow();
+            if (loginWindow.ShowDialog() == true)
+            {
+                User.CurrentUser = loginWindow.UsernameBox.Text;
+                frame.Content = new MainPage();
+            }
+            else
+            {
+                Close();
+            }
         }
 
         void MainWindowClosed(object sender, EventArgs e)
