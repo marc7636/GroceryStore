@@ -16,6 +16,7 @@ namespace GroceryStore
 
         public static void LoadState()
         {
+            Add("State is loading...");
             if (File.Exists(path + @"/storage.store"))
             {
                 using (Stream stream = File.Open(path + "/storage.store", FileMode.Open))
@@ -24,7 +25,8 @@ namespace GroceryStore
                     var inv = (Item[])formatter.Deserialize(stream);
                     Storage.Add(inv);
                 }
-            }    
+            }
+            Add("State was loaded!");
         }
 
         public static void SaveState()
@@ -37,14 +39,14 @@ namespace GroceryStore
                 var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 formatter.Serialize(stream, Storage.Items);
             }
+            Add("State was saved!");
         }
 
         public static void Add(string changes)
         {
             Directory.CreateDirectory(path);
             var time = DateTimeOffset.Now;
-            using (StreamWriter file =
-            File.AppendText(path + time.Date.ToString("dd-MM-yyyy") + ".txt"))
+            using (StreamWriter file = File.AppendText(path + time.Date.ToString("dd-MM-yyyy") + ".txt"))
             {
                 var timeOfDay = time.TimeOfDay.ToString();
                 file.WriteLine(timeOfDay.Substring(0, timeOfDay.IndexOf('.')) + @$" | {User.CurrentUser} | " + changes);
