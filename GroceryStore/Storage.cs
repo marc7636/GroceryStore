@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -36,7 +36,7 @@ namespace GroceryStore
             foreach (Item item in items)
             {
                 Inventory.Add(item.Barcode, item);
-                Log.Add($"{item} was added to storage! ({i++}/{items.Count})");
+                Log.Add($"{item} was added to storage! ({i += 1}/{items.Count})");
             }
         }
 
