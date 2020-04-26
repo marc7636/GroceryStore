@@ -77,8 +77,7 @@ namespace GroceryUI
 				for (int i = 0; i < int.Parse(itemAmountTextBox.Text);)
 				{
 					BarcodeInputWindow barcodeInputWindow = new BarcodeInputWindow(i += 1, itemExpirationDate);
-					barcodeInputWindow.ShowDialog();
-					if (barcodeInputWindow.DialogResult == true)
+					if (barcodeInputWindow.ShowDialog().Value)
 					{
 						Storage.Add(new Item(itemName, barcodeInputWindow.Barcode, itemExpirationDate, itemStorageMedium));
 					}
@@ -91,7 +90,7 @@ namespace GroceryUI
 		private void NumberInputValidation(object sender, TextCompositionEventArgs e)
 		{
 			Regex regex = new Regex("[^0-9]+");
-			e.Handled = regex.IsMatch(e.Text); //Whether or not it the input is accepted depends on if it's a number or not
+			e.Handled = regex.IsMatch(e.Text); //Whether or not the input is accepted depends on if it's a number or not
 		}
 	}
 }

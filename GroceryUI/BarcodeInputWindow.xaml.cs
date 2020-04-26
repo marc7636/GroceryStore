@@ -61,7 +61,10 @@ namespace GroceryUI
 
 		private void Window_Closing(object sender, CancelEventArgs e)
 		{
-			DialogResult = false;
+			if (!DialogResult.HasValue)
+			{
+				DialogResult = false;
+			}
 		}
 
 		private void CancelButton_Click(object sender, RoutedEventArgs e)
