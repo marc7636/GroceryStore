@@ -1,4 +1,4 @@
-﻿using GroceryStore;
+using GroceryStore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -47,7 +47,7 @@ namespace GroceryUI
 		void AddButtonClick(object sender, RoutedEventArgs e)
 		{
 			(new AddItemWindow()).ShowDialog();
-			StorageListView.ItemsSource = Storage.Items;
+			UpdateListView();
 		}
 	}
 }
