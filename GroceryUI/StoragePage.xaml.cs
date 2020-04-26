@@ -19,11 +19,9 @@ namespace GroceryUI
 	/// </summary>
 	public partial class StoragePage : Page
 	{
-		readonly double listWidthModifier = 3 / 5;
 		public StoragePage()
 		{
 			InitializeComponent();
-			StorageListView.Width = this.Width * listWidthModifier;
 			UpdateListView();
 		}
 
@@ -32,15 +30,7 @@ namespace GroceryUI
 			StorageListView.Items.Clear();
 			foreach (Item item in Storage.Items)
 			{
-				StorageListView.Items.Add(item);
-			}
-		}
-
-		void OnSizeChange(object sender, SizeChangedEventArgs e)
-		{
-			if (e.WidthChanged)
-			{
-				StorageListView.Width = e.NewSize.Width * listWidthModifier;
+				StorageListView.Items.Add(new ItemInterpretation() { Name = item.Name, Barcode = item.Barcode, ExpirationDate = item.ExpirationDate.ToString("yyyy-MM-dd"), StorageMedium = item.StorageMedium.ToString()});
 			}
 		}
 
@@ -49,5 +39,13 @@ namespace GroceryUI
 			(new AddItemWindow()).ShowDialog();
 			UpdateListView();
 		}
+	}
+
+	public class ItemInterpretation
+	{
+		public string Name { get; set; }
+		public string Barcode { get; set; }
+		public string ExpirationDate { get; set; }
+		public string StorageMedium { get; set; }
 	}
 }

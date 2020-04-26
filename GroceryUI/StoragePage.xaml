@@ -9,16 +9,20 @@
       Title="Storage">
 
     <Grid>
-        <ListView x:Name="StorageListView" HorizontalAlignment="Left" Width="480" SizeChanged="OnSizeChange">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="StorageListView" DataContext="">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Barcode" Width="80" DisplayMemberBinding="{Binding Barcode}"/>
+                    <GridViewColumn Header="Barcode" Width="134" DisplayMemberBinding="{Binding Barcode}"/>
                     <GridViewColumn Header="Expiration Date" Width="90" DisplayMemberBinding="{Binding ExpirationDate}"/>
                     <GridViewColumn Header="Storage Medium" Width="100" DisplayMemberBinding="{Binding StorageMedium}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="AddButton" Content="Add item(s)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Click="AddButtonClick"/>
+        <Button x:Name="AddButton" Content="Add item(s)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Click="AddButtonClick" Grid.Column="1"/>
     </Grid>
 </Page>
