@@ -71,6 +71,7 @@ namespace GroceryUI
 
 			if (ProperlyFilled)
 			{
+				List<Item> newItems = new List<Item>();
 				itemName = itemNameTextBox.Text;
 				itemExpirationDate = expirationDateSelection.SelectedDate.Value;
 				itemStorageMedium = (StorageMedium)storageMediumSelection.SelectedIndex;
@@ -79,9 +80,15 @@ namespace GroceryUI
 					BarcodeInputWindow barcodeInputWindow = new BarcodeInputWindow(i += 1, itemExpirationDate);
 					if (barcodeInputWindow.ShowDialog().Value)
 					{
-						Storage.Add(new Item(itemName, barcodeInputWindow.Barcode, itemExpirationDate, itemStorageMedium));
+						newItems.Add(new Item(itemName, barcodeInputWindow.Barcode, itemExpirationDate, itemStorageMedium));
+					}
+					else
+					{
+						Close();
+						return;
 					}
 				}
+				Storage.Add(newItems);
 				Close();
 			}
 		}
