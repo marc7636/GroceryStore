@@ -1,4 +1,4 @@
-﻿using GroceryStore;
+using GroceryStore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,15 +71,15 @@ namespace GroceryUI
 
 			if (ProperlyFilled)
 			{
+				itemName = itemNameTextBox.Text;
+				itemExpirationDate = expirationDateSelection.SelectedDate.Value;
+				itemStorageMedium = (StorageMedium)storageMediumSelection.SelectedIndex;
 				for (int i = 0; i < int.Parse(itemAmountTextBox.Text);)
 				{
 					BarcodeInputWindow barcodeInputWindow = new BarcodeInputWindow(i += 1, itemExpirationDate);
 					barcodeInputWindow.ShowDialog();
 					if (barcodeInputWindow.DialogResult == true)
 					{
-						itemName = itemNameTextBox.Text;
-						itemExpirationDate = expirationDateSelection.SelectedDate.Value;
-						itemStorageMedium = (StorageMedium)storageMediumSelection.SelectedIndex;
 						Storage.Add(new Item(itemName, barcodeInputWindow.Barcode, itemExpirationDate, itemStorageMedium));
 					}
 				}
