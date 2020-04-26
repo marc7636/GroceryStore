@@ -24,7 +24,6 @@ namespace GroceryUI
     {
         public MainWindow()
         {
-            Log.LoadState();
             InitializeComponent();
 
             LoginWindow loginWindow = new LoginWindow();
@@ -37,6 +36,7 @@ namespace GroceryUI
             {
                 Close();
             }
+            Log.LoadState();
         }
 
         void MainWindowClosing(object sender, CancelEventArgs e)
