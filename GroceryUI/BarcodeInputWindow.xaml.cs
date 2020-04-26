@@ -63,12 +63,13 @@ namespace GroceryUI
 		{
 			if (!DialogResult.HasValue)
 			{
-				DialogResult = false;
+				e.Cancel = true;
 			}
 		}
 
 		private void CancelButton_Click(object sender, RoutedEventArgs e)
 		{
+			DialogResult = false;
 			Close();
 		}
 	}
